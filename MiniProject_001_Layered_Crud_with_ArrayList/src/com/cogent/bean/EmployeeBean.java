@@ -1,5 +1,9 @@
 package com.cogent.bean;
-
+/**
+ * 
+ * @author Charlie Higgins
+ * @date   Sep 30, 2022
+ */
 public class EmployeeBean {
 	private long employeeId;
 	private String employeeFname;
