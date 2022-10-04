@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import com.cogent.bean.EmployeeBean;
+import com.cogent.exceptions.InvalidInputException;
 import com.cogent.service.EmployeeService;
 import com.cogent.service.EmployeeServiceImpl;
 
@@ -76,6 +77,8 @@ public class EmployeeClient {
 				System.out.println("Employee's City: "+employee.getEmployeeCity()+" ");
 				System.out.println("Employee's Country: "+employee.getEmployeeCountry());
 				System.out.println();
+				System.out.println("Hit Enter to Continue.");
+				new Scanner(System.in).nextLine();
 			}else if(number==4) {
 				List<EmployeeBean> EmployeesList=Service.viewAllEmployees();
 				for(int i=0;i<EmployeesList.size();i++) {
@@ -90,6 +93,8 @@ public class EmployeeClient {
 					System.out.println();
 					System.out.println();
 				}
+				System.out.println("Hit Enter to Continue.");
+				new Scanner(System.in).nextLine();
 			}
 			else if(number==5) {
 				EmployeeBean youngestEmployee=Service.findTheYoungestEmployee();
@@ -101,6 +106,9 @@ public class EmployeeClient {
 				System.out.println("Is the employee married: "+youngestEmployee.isEmployeeIsMarried()+" ");
 				System.out.println("Employee's City: "+youngestEmployee.getEmployeeCity()+" ");
 				System.out.println("Employee's Country: "+youngestEmployee.getEmployeeCountry());
+				System.out.println();
+				System.out.println("Hit Enter to Continue.");
+				new Scanner(System.in).nextLine();
 			}else if(number==6) {
 				System.out.print("Enter Employee's Country:  ");
 				//String empCountry=new Scanner(System.in).nextLine();
@@ -116,6 +124,8 @@ public class EmployeeClient {
 					System.out.println("Employee's Country: "+EmployeesfromCountryList.get(i).getEmployeeCountry());
 					System.out.println();
 				}
+				System.out.println("Hit Enter to Continue.");
+				new Scanner(System.in).nextLine();
 			}else if(number==7) {
 				System.out.print("Enter Employee's City:  ");
 				//String empCity=new Scanner(System.in).nextLine();
@@ -133,10 +143,14 @@ public class EmployeeClient {
 						System.out.println();
 					}
 				}
+				System.out.println("Hit Enter to Continue.");
+				new Scanner(System.in).nextLine();
 			}else if(number==8) {
 				runprogram=false;
 				break;
 			
+			}else if(number>8||number<1) {
+				throw new InvalidInputException("Number has to be 1-8.");
 			}
 		}
 	}
